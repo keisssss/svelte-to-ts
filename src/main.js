@@ -75,7 +75,6 @@ function mountReplace(Component, options) {
     }
   }
 
-  //   const frag = document.createDocumentFragment();
   new Component({ ...options, target: container });
   console.log(target);
   if (target.style === "modal") {
@@ -96,7 +95,6 @@ function mountReplace(Component, options) {
 }
 
 state.subscribe((v) => {
-  //   console.log("subscribe");
   mountReplace(App, {
     target: stateToTarget[v],
     props: { state },
