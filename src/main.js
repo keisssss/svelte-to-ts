@@ -41,7 +41,7 @@ function mountReplace(Component, options) {
 }
 
 state.subscribe((v) => {
-  console.log("subscribe");
+  //   console.log("subscribe");
   mountReplace(App, {
     target: stateToTarget[v],
     props: { state },

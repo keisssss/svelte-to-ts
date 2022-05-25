@@ -9,7 +9,7 @@
 
 {#if $state === "state1"}
   <div id="svelte-component" class="block" data-state="state1">
-    embed-state1
+    svelte-embed 1
     <button
       on:click={() => {
         onClick("state2");
@@ -20,7 +20,7 @@
   </div>
 {:else if $state === "state2"}
   <div id="svelte-component" class="block" data-state="state2">
-    embed-state2
+    svelte-embed 2
     <button
       on:click={() => {
         onClick("state3");
@@ -31,7 +31,7 @@
   </div>
 {:else if $state === "state3"}
   <div id="svelte-component" class="block" data-state="state3">
-    embed-state3
+    svelte-embed 3
     <button
       on:click={() => {
         onClick("state4");
@@ -43,7 +43,8 @@
 {:else if $state === "state4"}
   <div id="svelte-component" class="modal-container" data-state="state3">
     <div class="modal">
-      modal<button
+      svelte-modal
+      <button
         on:click={() => {
           onClick("state1");
         }}
@@ -57,10 +58,6 @@
 {/if}
 
 <style>
-  .container {
-    /* width: 100%;
-    height: 100%; */
-  }
   .block {
     height: 200px;
     width: 200px;
@@ -70,6 +67,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    cursor: default;
   }
 
   .modal-container {
@@ -87,7 +85,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 2px solid black;
     gap: 20px;
   }
 
