@@ -48,14 +48,14 @@ function mountReplace(Component, options) {
   document.querySelectorAll("#svelte-container").forEach((e) => {
     e.remove();
   });
-  const frag = document.createElement("div");
-  frag.id = "svelte-container";
-  frag.style.height = "100%";
-  frag.style.width = "100%";
-  frag.style.top = 0;
-  frag.style.left = 0;
+  const container = document.createElement("div");
+  container.id = "svelte-container";
+  container.style.height = "100%";
+  container.style.width = "100%";
+  container.style.top = 0;
+  container.style.left = 0;
   if (target.style === "modal") {
-    frag.style.position = "absolute";
+    container.style.position = "absolute";
   } else if (target.style === "embed") {
     if (target.type === "change") {
       const elems = target.element.children;
@@ -67,28 +67,28 @@ function mountReplace(Component, options) {
         target.element.innerHTML = "";
       }
     } else if (target.type === "insert-before") {
-      frag.style.height = "";
-      frag.style.width = "";
+      container.style.height = "";
+      container.style.width = "";
     } else if (target.type === "insert-after") {
-      frag.style.height = "";
-      frag.style.width = "";
+      container.style.height = "";
+      container.style.width = "";
     }
   }
 
   //   const frag = document.createDocumentFragment();
-  new Component({ ...options, target: frag });
+  new Component({ ...options, target: container });
   console.log(target);
   if (target.style === "modal") {
-    target.element.appendChild(frag);
+    target.element.appendChild(container);
   } else if (target.style === "embed") {
     if (target.type === "change") {
-      target.element.appendChild(frag);
+      target.element.appendChild(container);
     } else if (target.type === "insert-before") {
       const parent = target.element.parentNode;
-      parent.insertBefore(frag, target.element);
+      parent.insertBefore(container, target.element);
     } else if (target.type === "insert-after") {
       const parent = target.element.parentNode;
-      target.element.after(frag);
+      target.element.after(container);
     } else {
       console.log("here");
     }
