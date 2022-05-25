@@ -14,14 +14,16 @@
   </head>
 
   <body>
-    <div class="block" style="border: 2px solid pink"></div>
-    <div class="block" style="border: 2px solid blue"></div>
-    <div class="block" style="border: 2px solid green"></div>
+    <div class="block-container">
+      <div class="block" style="border: 2px solid pink"></div>
+      <div class="block" style="border: 2px solid blue"></div>
+      <div class="block" style="border: 2px solid green"></div>
+    </div>
   </body>
 </html>
 
 <style>
-  body {
+  .block-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,11 +32,5 @@
   .block {
     height: 200px;
     width: 200px;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
   }
 </style>
