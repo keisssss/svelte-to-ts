@@ -45,7 +45,6 @@ const stateToTarget = {
 
 function mountReplace(Component, options) {
   const target = options.target;
-  console.log(target);
   document.querySelectorAll("#svelte-container").forEach((e) => {
     e.remove();
   });
@@ -67,12 +66,33 @@ function mountReplace(Component, options) {
       } else {
         target.element.innerHTML = "";
       }
+    } else if (target.type === "insert-before") {
+      frag.style.height = "";
+      frag.style.width = "";
+    } else if (target.type === "insert-after") {
+      frag.style.height = "";
+      frag.style.width = "";
     }
   }
 
   //   const frag = document.createDocumentFragment();
   new Component({ ...options, target: frag });
-  target.element.appendChild(frag);
+  console.log(target);
+  if (target.style === "modal") {
+    target.element.appendChild(frag);
+  } else if (target.style === "embed") {
+    if (target.type === "change") {
+      target.element.appendChild(frag);
+    } else if (target.type === "insert-before") {
+      const parent = target.element.parentNode;
+      parent.insertBefore(frag, target.element);
+    } else if (target.type === "insert-after") {
+      const parent = target.element.parentNode;
+      target.element.after(frag);
+    } else {
+      console.log("here");
+    }
+  }
 }
 
 state.subscribe((v) => {

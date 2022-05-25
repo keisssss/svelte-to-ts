@@ -8,7 +8,7 @@
 </script>
 
 {#if $state === "state1"}
-  <div class="block" data-state="state1">
+  <div class="block">
     svelte-embed 1
     <button
       on:click={() => {
@@ -19,7 +19,7 @@
     >
   </div>
 {:else if $state === "state2"}
-  <div class="block" data-state="state2">
+  <div class="block">
     svelte-embed 2
     <button
       on:click={() => {
@@ -30,18 +30,40 @@
     >
   </div>
 {:else if $state === "state3"}
-  <div class="block" data-state="state3">
+  <div class="block">
     svelte-embed 3
     <button
       on:click={() => {
-        onClick("state6");
+        onClick("state4");
       }}
     >
       to state4</button
     >
   </div>
+{:else if $state === "state4"}
+  <div class="block">
+    svelte-embed 4
+    <button
+      on:click={() => {
+        onClick("state5");
+      }}
+    >
+      to state5</button
+    >
+  </div>
+{:else if $state === "state5"}
+  <div class="block">
+    svelte-embed 5
+    <button
+      on:click={() => {
+        onClick("state6");
+      }}
+    >
+      to state6</button
+    >
+  </div>
 {:else if $state === "state6"}
-  <div class="modal-container" data-state="state3">
+  <div class="modal-container">
     <div class="modal">
       svelte-modal
       <button
