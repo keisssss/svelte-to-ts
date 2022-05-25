@@ -15,6 +15,7 @@
 
   <body>
     <div class="block-container">
+      <span>rewrite</span>
       <div class="block" style="border: 2px solid pink">
         HTML-element 1
         <!-- <img src="https://picsum.photos/id/237/200" alt="" /> -->
@@ -28,6 +29,13 @@
         <!-- <img src="https://picsum.photos/id/1025/200" alt="" /> -->
       </div>
     </div>
+    <div class="insert-container">
+      <span>insert</span>
+      <div class="block" style="border: 2px solid red">
+        HTML-element 4
+        <!-- <img src="https://picsum.photos/id/237/200" alt="" /> -->
+      </div>
+    </div>
   </body>
 </html>
 
@@ -36,7 +44,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px 30px;
+    gap: 30px;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+  }
+  .insert-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
   }
   .block {
     height: 200px;

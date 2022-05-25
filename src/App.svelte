@@ -34,13 +34,13 @@
     svelte-embed 3
     <button
       on:click={() => {
-        onClick("state4");
+        onClick("state6");
       }}
     >
       to state4</button
     >
   </div>
-{:else if $state === "state4"}
+{:else if $state === "state6"}
   <div class="modal-container" data-state="state3">
     <div class="modal">
       svelte-modal
