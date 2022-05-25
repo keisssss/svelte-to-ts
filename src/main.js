@@ -48,8 +48,12 @@ function mountReplace(Component, options) {
   } else if (options.target.style === "embed") {
     if (options.target.type === "change") {
       const elements = options.target.target.children;
-      while (elements.length) {
-        elements.item(0).remove();
+      if (elements.length !== 0) {
+        while (elements.length) {
+          elements.item(0).remove();
+        }
+      } else {
+        options.target.target.innerHTML = "";
       }
     }
   }
